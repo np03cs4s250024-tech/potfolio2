@@ -1,48 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Shashanka Poudel</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Roshan Kumar Yadav</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">My Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ================= HEADER / HERO WITH VIDEO ================= -->
+  <header id="hero-section">
+    <!-- Video background (use video.mp4 in project root) -->
+    <video id="bg-video" class="hero-bg" autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-    
-    <section class="hero">
+    <!-- Navigation -->
+    <nav class="top-nav navbar" role="navigation" aria-label="Main">
+      <div class="brand logo">Portfolio</div>
 
-       
-        <video class="hero-bg" autoplay muted loop playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </video>
+      <ul class="nav-menu nav-links" id="nav-menu">
+        <li><a href="#about-section">About</a></li>
+        <li><a href="#skills-section">Skills</a></li>
+        <li><a href="#projects-section">Projects</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+      </ul>
 
-        <div class="overlay">
-            <h1 class="hero-title">Roshan Kumar Yadav</h1>
-            <p class="hero-subtitle">Full Stack Developer</p>
-        </div>
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button>
+    </nav>
 
+    <!-- Hero content / overlay -->
+    <div class="overlay hero-text">
+      <h1 class="hero-title">Roshan Kumar Yadav</h1>
+      <p class="hero-subtitle">Full Stack Developer • MERN Stack • UI/UX Enthusiast</p>
+    </div>
+  </header>
+
+  <!-- ================= ABOUT ================= -->
+  <main>
+    <section id="about-section" class="about-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        I am a passionate MERN stack developer specializing in building responsive and accessible web applications.
+        With a strong foundation in HTML, CSS, JavaScript, React, Node.js, and MongoDB, I build performant and user-friendly
+        experiences. I enjoy solving problems, learning new tools, and collaborating with teams to deliver production-ready apps.
+        (This paragraph merges and preserves your earlier About content.)
+      </p>
     </section>
 
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <p>
-            I am a passionate MERN stack developer specializing in building responsive and accessible web applications.
-            With a strong foundation in HTML, CSS, JavaScript, React, and MongoDB...
-        </p>
+    <!-- ================= SKILLS (Flexbox) ================= -->
+    <section id="skills-section" class="skills-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">My Skills</h2>
+      <div class="skills-box">
+        <span class="skill-item">HTML</span>
+        <span class="skill-item">CSS</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">React</span>
+        <span class="skill-item">Node.js</span>
+        <span class="skill-item">MongoDB</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Figma</span>
+      </div>
     </section>
 
+    <!-- ================= PROJECTS (Grid) ================= -->
+    <section id="projects-section" class="projects-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="projects-grid">
+        <article class="project">Project A — Short description or tech stack</article>
+        <article class="project">Project B — Short description or tech stack</article>
+        <article class="project">Project C — Short description or tech stack</article>
+        <article class="project">Project D — Short description or tech stack</article>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT FORM ================= -->
+    <section id="contact-section" class="contact-section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <label for="fullName" class="visually-hidden">Your Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your Name" required>
+
+        <label for="emailAddress" class="visually-hidden">Your Email</label>
+        <input type="email" id="emailAddress" name="emailAddress" placeholder="Your Email" required>
+
+        <label for="msg" class="visually-hidden">Your Message</label>
+        <textarea id="msg" name="msg" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div id="formResponse" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2025 Roshan Kumar Yadav — Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

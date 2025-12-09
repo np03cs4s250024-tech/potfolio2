@@ -1,22 +1,27 @@
-
-document.querySelectorAll('.nav-links a').forEach(link => {
+/* ================= Smooth Scrolling ================= */
+document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close menu on mobile
+        document.getElementById("nav-menu").classList.remove("active");
     });
 });
 
 
-
+/* ================= Highlight Active Nav Link ================= */
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+const navLinks = document.querySelectorAll(".nav-menu a");
 
 window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
+        const sectionTop = section.offsetTop - 140;
         if (scrollY >= sectionTop) {
             current = section.getAttribute("id");
         }
@@ -31,23 +36,24 @@ window.addEventListener("scroll", () => {
 });
 
 
-
+/* ================= Navbar Background Change on Scroll ================= */
 window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
+    const navbar = document.querySelector(".top-nav");
+
     if (window.scrollY > 50) {
-        navbar.style.background = "rgba(0,0,0,0.7)";
+        navbar.style.background = "rgba(0, 0, 0, 0.75)";
+        navbar.style.backdropFilter = "blur(5px)";
     } else {
-        navbar.style.background = "rgba(0,0,0,0.5)";
+        navbar.style.background = "transparent";
+        navbar.style.backdropFilter = "none";
     }
 });
 
 
+/* ================= Mobile Menu Toggle ================= */
+const menuBtn = document.getElementById("menu-btn");
+const navMenu = document.getElementById("nav-menu");
 
-const menuBtn = document.querySelector(".menu-btn");
-const navList = document.querySelector(".nav-links");
-
-if (menuBtn) {
-    menuBtn.addEventListener("click", () => {
-        navList.classList.toggle("show");
-    });
-}
+menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
